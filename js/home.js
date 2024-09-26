@@ -53,7 +53,7 @@ document.getElementById('btn-noakhali').addEventListener('click',function(event)
     newCard.style.right = '280px'; 
     
 
-    // Set card content
+    //  card content
     newCard.innerHTML = `
 
     <div class=" flex-col justify-center px-20 text-center">
@@ -82,6 +82,8 @@ document.getElementById('btn-noakhali').addEventListener('click',function(event)
 
 
    })
+
+   
 
    }
 
@@ -122,7 +124,45 @@ document.getElementById('btn-feni').addEventListener('click',function(event){
 
     });
 
-    alert(`Thank you for donating ${donation} Taka!`);
+   
+    // card
+    const newCard = document.createElement("div");
+    newCard.className = 'bg-white px-10 py-10 mx-20 justify-center rounded-xl border-2 border-gray-200';
+    newCard.style.position = 'absolute'; 
+    newCard.style.top = '570px'; 
+    newCard.style.right = '280px'; 
+    
+
+    //  card content
+    newCard.innerHTML = `
+
+    <div class=" flex-col justify-center px-20 text-center">
+
+        <h3 class="font-bold py-4 text-3xl">Congrats!</h3>
+         <div class="flex items-center justify-center   ">
+         <img
+                src="assets/coin.png"  />
+         </div>
+        
+        <p class="text-gray-500 py-4 text-lg">You have Donated for Humankind</p>
+        <p class="font-bold pb-4 text-xl ">Successfully</p>
+         <button class="close-card btn p-3">Close Confirmation</button>
+         </div>
+    `;
+
+
+    const cards = document.getElementById('cards'); 
+    cards.classList.remove('hidden');
+    
+    cards.appendChild(newCard);
+
+    newCard.querySelector('.close-card').addEventListener('click', function() { 
+        newCard.remove();
+
+
+
+   })
+
 
     }
 
@@ -164,7 +204,46 @@ document.getElementById('btn-protest').addEventListener('click',function(event){
         date : Date
 
     });
-    alert(`Thank you for donating ${donation} Taka!`);
+    
+    
+    // card
+    const newCard = document.createElement("div");
+    newCard.className = 'bg-white px-10 py-10 mx-20 justify-center rounded-xl border-2 border-gray-200 ';
+    newCard.style.position = 'absolute'; 
+    newCard.style.top = '870px'; 
+    newCard.style.right = '280px'; 
+    
+
+    //  card content
+    newCard.innerHTML = `
+
+    <div class=" flex-col justify-center px-20 text-center">
+
+        <h3 class="font-bold py-4 text-3xl">Congrats!</h3>
+         <div class="flex items-center justify-center   ">
+         <img
+                src="assets/coin.png"  />
+         </div>
+        
+        <p class="text-gray-500 py-4 text-lg">You have Donated for Humankind</p>
+        <p class="font-bold pb-4 text-xl ">Successfully</p>
+         <button class="close-card btn p-3">Close Confirmation</button>
+         </div>
+    `;
+
+
+    const cards = document.getElementById('cards'); 
+    cards.classList.remove('hidden');
+    
+    cards.appendChild(newCard);
+
+    newCard.querySelector('.close-card').addEventListener('click', function() { 
+        newCard.remove();
+
+
+
+   })
+
 
     }
 
