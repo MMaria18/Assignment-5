@@ -16,6 +16,7 @@ document.getElementById('btn-noakhali').addEventListener('click',function(event)
 
     event.preventDefault();
 
+
     const donation = parseFloat(document.getElementById('input-noakhali').value);
     
 
@@ -44,10 +45,33 @@ document.getElementById('btn-noakhali').addEventListener('click',function(event)
 
     alert(`Thank you for donating ${donation} Taka!`);
 
+    // card
+    const newCard = document.createElement('div');
+    newCard.className = 'bg-white px-8 py-3  justify-center rounded-md border-2 border-gray-200';
+
+    // Set card content
+    newCard.innerHTML = `
+        <h3 class="font-bold text-3xl">Congrats!</h3>
+        <img
+                src="assets/coin.png"  class="max-w-md rounded-lg shadow-2xl" />
+        <p class="text-gray-500 text-lg">You have Donated for Humankind</p>
+        <p class="font-bold text-xl ">Successfully</p>
+         <button id="close-card" class="btn p-3">close confirmation</button>
+    `;
+
+    // Append the new card to the container
+    const cards = document.getElementById('cards'); // Ensure this element exists in your HTML
+    cards.classList.remove('hidden');
+    cards.appendChild(newCard);
+
+    newCard.getElementById('close-card').addEventListener('click', function() {
+        newCard.remove();
+
+
+
+   })
 
    }
-
-
 
    else{
     alert('Invalid Donation amount')
