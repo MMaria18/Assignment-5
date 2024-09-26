@@ -4,7 +4,7 @@ let donationHis = [];
 
 function dateTime (){
     const t = new Date();
-    return t.toLocaleString('es-Us', {timeZone: 'Asia /Dhaka'}) + "(Bangladesh standard time)";
+    return t.toLocaleString('es-Us', {timeZone: 'Asia/Dhaka'}) + "(Bangladesh standard time)";
 
 }
 
@@ -32,7 +32,7 @@ document.getElementById('btn-noakhali').addEventListener('click',function(event)
 
     document.getElementById('totalBalance').innerText =finalBalance;
 
-    const Date = getCurrentDateTime();
+    const Date = dateTime();
     const cause = "Flood Relief in Noakhali, Bangladesh";
     donationHis.push({
         amount: donation,
@@ -74,7 +74,7 @@ document.getElementById('btn-feni').addEventListener('click',function(event){
 
     document.getElementById('totalBalance').innerText =finalBalance;
 
-    const Date = getCurrentDateTime();
+    const Date = dateTime();
     const cause = "Flood Relief in Feni, Bangladesh";
     donationHis.push({
         amount: donation,
@@ -115,7 +115,7 @@ document.getElementById('btn-protest').addEventListener('click',function(event){
 
     document.getElementById('totalBalance').innerText =finalBalance;
 
-    const Date = getCurrentDateTime();
+    const Date = dateTime();
     const cause = " the Quota Movement, Bangladesh";
     donationHis.push({
         amount: donation,
@@ -173,13 +173,65 @@ document.getElementById('btn-protest').addEventListener('click',function(event){
         document.getElementById('cards').classList.add('hidden');
 
 
-        const historyList = document.createElement("div");
+        const historyContainer =document.getElementById('his-list');
+
+        // loop for each donatio
+        for(const money of donationHis){
+            const historyList = document.createElement("div");
         historyList.className =
-        "bg-white px-4 py-3 rounded-md border-2 border-gray-200"
+        "bg-white px-5 py-4 rounded-md my-6 mx-24 border-2 border-gray-200"
 
         historyList.innerHTML =`
-        <h3></h3>
+        <h3 class="font-bold">${money.amount} Taka is Donated for ${money.reason}</h3>
+        <p class="text-gray-500 bg-slate-100 text-sm">Date : ${money.date}</p>
         
         
-        `
+        `;
+    
+        historyContainer.appendChild(historyList);
+    }
+
+    
+});
+
+
+   const btnDonate = document.getElementById('btn-donate')
+   btnDonate.addEventListener('click',function(){
+
+    btnDonate.classList.add(
+
+        "px-7",
+           "font-bold" ,
+          
+           "bg-gradient-to-r",
+           "from-pink-400",
+            "to-red-300"
+
+
+    )
+
+
+    history.classList.remove(
+
+       
+       
+        "bg-gradient-to-r",
+        "from-pink-400",
+         "to-red-300"
+
+       
+    )
+
+    document.getElementById('cards').classList.remove('hidden');
+
+
+
+
+
+
 })
+
+
+
+
+
