@@ -1,4 +1,15 @@
 
+let donationHis = [];
+// to get current date and time
+
+function dateTime (){
+    const t = new Date();
+    return t.toLocaleString('es-Us', {timeZone: 'Asia /Dhaka'}) + "(Bangladesh standard time)";
+
+}
+
+
+
 // for noakhali
 
 document.getElementById('btn-noakhali').addEventListener('click',function(event){
@@ -20,6 +31,16 @@ document.getElementById('btn-noakhali').addEventListener('click',function(event)
     const finalBalance = balance-donation;
 
     document.getElementById('totalBalance').innerText =finalBalance;
+
+    const Date = getCurrentDateTime();
+    const cause = "Flood Relief in Noakhali, Bangladesh";
+    donationHis.push({
+        amount: donation,
+
+        reason: cause,
+        date : Date
+
+    });
 
 
    }
@@ -53,6 +74,16 @@ document.getElementById('btn-feni').addEventListener('click',function(event){
 
     document.getElementById('totalBalance').innerText =finalBalance;
 
+    const Date = getCurrentDateTime();
+    const cause = "Flood Relief in Feni, Bangladesh";
+    donationHis.push({
+        amount: donation,
+
+        reason: cause,
+        date : Date
+
+    });
+
     }
 
     else{
@@ -84,6 +115,16 @@ document.getElementById('btn-protest').addEventListener('click',function(event){
 
     document.getElementById('totalBalance').innerText =finalBalance;
 
+    const Date = getCurrentDateTime();
+    const cause = " the Quota Movement, Bangladesh";
+    donationHis.push({
+        amount: donation,
+
+        reason: cause,
+        date : Date
+
+    });
+
     }
 
     else{
@@ -94,4 +135,51 @@ document.getElementById('btn-protest').addEventListener('click',function(event){
 })
 
 
+// history tab
+     
 
+
+    const donate = document.getElementById('btn-donate');
+     const history = document.getElementById('btn-his');
+     history.addEventListener('click',function(){
+
+
+        history.classList.add(
+           
+           "px-7",
+           "font-bold" ,
+          
+           "bg-gradient-to-r",
+           "from-pink-400",
+            "to-red-300"
+
+        );
+
+        history.classList.remove(
+            "border-2"
+        )
+
+        donate.classList.remove(
+
+          
+           "font-bold" ,
+          
+           "bg-gradient-to-r",
+           "from-pink-400",
+            "to-red-300"
+
+        )
+
+        document.getElementById('cards').classList.add('hidden');
+
+
+        const historyList = document.createElement("div");
+        historyList.className =
+        "bg-white px-4 py-3 rounded-md border-2 border-gray-200"
+
+        historyList.innerHTML =`
+        <h3></h3>
+        
+        
+        `
+})
