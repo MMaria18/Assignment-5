@@ -43,28 +43,40 @@ document.getElementById('btn-noakhali').addEventListener('click',function(event)
 
     });
 
-    alert(`Thank you for donating ${donation} Taka!`);
+   
 
     // card
-    const newCard = document.createElement('div');
-    newCard.className = 'bg-white px-8 py-3  justify-center rounded-md border-2 border-gray-200';
+    const newCard = document.createElement("div");
+    newCard.className = 'bg-white px-10 py-10 mx-20 justify-center rounded-xl border-2 border-gray-200';
+    newCard.style.position = 'absolute'; 
+    newCard.style.top = '270px'; 
+    newCard.style.right = '280px'; 
+    
 
     // Set card content
     newCard.innerHTML = `
-        <h3 class="font-bold text-3xl">Congrats!</h3>
-        <img
-                src="assets/coin.png"  class="max-w-md rounded-lg shadow-2xl" />
-        <p class="text-gray-500 text-lg">You have Donated for Humankind</p>
-        <p class="font-bold text-xl ">Successfully</p>
-         <button id="close-card" class="btn p-3">close confirmation</button>
+
+    <div class=" flex-col justify-center px-20 text-center">
+
+        <h3 class="font-bold py-4 text-3xl">Congrats!</h3>
+         <div class="flex items-center justify-center   ">
+         <img
+                src="assets/coin.png"  />
+         </div>
+        
+        <p class="text-gray-500 py-4 text-lg">You have Donated for Humankind</p>
+        <p class="font-bold pb-4 text-xl ">Successfully</p>
+         <button class="close-card btn p-3">Close Confirmation</button>
+         </div>
     `;
 
-    // Append the new card to the container
-    const cards = document.getElementById('cards'); // Ensure this element exists in your HTML
+
+    const cards = document.getElementById('cards'); 
     cards.classList.remove('hidden');
+    
     cards.appendChild(newCard);
 
-    newCard.getElementById('close-card').addEventListener('click', function() {
+    newCard.querySelector('.close-card').addEventListener('click', function() { 
         newCard.remove();
 
 
