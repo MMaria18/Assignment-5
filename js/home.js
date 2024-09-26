@@ -42,6 +42,8 @@ document.getElementById('btn-noakhali').addEventListener('click',function(event)
 
     });
 
+    alert(`Thank you for donating ${donation} Taka!`);
+
 
    }
 
@@ -84,6 +86,8 @@ document.getElementById('btn-feni').addEventListener('click',function(event){
 
     });
 
+    alert(`Thank you for donating ${donation} Taka!`);
+
     }
 
     else{
@@ -124,6 +128,7 @@ document.getElementById('btn-protest').addEventListener('click',function(event){
         date : Date
 
     });
+    alert(`Thank you for donating ${donation} Taka!`);
 
     }
 
